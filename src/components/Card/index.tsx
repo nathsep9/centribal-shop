@@ -1,16 +1,22 @@
 import * as React from "react";
-import { styled } from "@mui/material/styles";
+import { useTranslation } from "react-i18next";
 import MuiCard from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import CardContent from "@mui/material/CardContent";
 import IconButton, { IconButtonProps } from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
-import { Button, Menu, MenuItem } from "@mui/material";
+import { Button, Grid, Menu, MenuItem } from "@mui/material";
+import { Box } from "@mui/material";
+import ShoppingCart from "@mui/icons-material/ShoppingCartCheckout";
+
 import { Product } from "models/product";
 import { client } from "client";
-import { Modal } from "./Modal/index";
+import { EditProduct } from "../Dialogs";
+import { useShopping } from "contexts/ShoppingContext";
+import { numberFormat } from "utils";
 
+import { styled } from "@mui/material/styles";
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
 }
@@ -26,13 +32,14 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
   }),
 }));
 
-export const Card = ({
-  product,
-  onDelete,
-}: {
+interface Card {
   product: Product;
   onDelete: () => void;
-}) => {
+  onEdited: (newProduct: Product) => void;
+}
+
+export const Card = ({ product, onDelete, onEdited }: Card) => {
+  const { t, i18n } = useTranslation("cardProduct");
   const { name, description, price, id } = product;
   const [expanded, setExpanded] = React.useState(false);
 
@@ -49,12 +56,13 @@ export const Card = ({
     setAnchorEl(null);
   };
   const [edit, setEdit] = React.useState(false);
+  const { addProduct } = useShopping();
 
   return (
     <MuiCard sx={{ maxWidth: 345 }}>
       <CardHeader
         action={
-          <IconButton aria-label="settings">
+          <>
             <IconButton
               aria-label="delete"
               color="inherit"
@@ -77,9 +85,8 @@ export const Card = ({
                   setEdit(true);
                 }}
               >
-                Editar
+                {t("edit")}
               </MenuItem>
-
               <MenuItem
                 onClick={async () => {
                   handleClose();
@@ -87,23 +94,66 @@ export const Card = ({
                   onDelete();
                 }}
               >
-                Eliminar
+                {t("delete")}
               </MenuItem>
             </Menu>
-          </IconButton>
+          </>
         }
-        title={name}
-        subheader={id}
+        title={
+          <Typography
+            color="text.secondary"
+            fontFamily={"Roboto"}
+            fontSize={12}
+          >
+            {id}
+          </Typography>
+        }
+        subheader={
+          <Typography
+            color="text.secondary"
+            fontFamily={"Roboto"}
+            fontSize={20}
+          >
+            {name}
+          </Typography>
+        }
       />
       <CardContent>
-        <Typography variant="body2" color="text.secondary">
-          {description}
+        <Typography variant="body2" color="text.secondary" mb={2}>
+          {description || "----------------"}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          ${price}
+          {numberFormat(price)}
         </Typography>
+        <Box textAlign="center" mt={2}>
+          <Button
+            sx={{ mt: 2 }}
+            color="secondary"
+            variant="contained"
+            onClick={() => {
+              addProduct(product);
+            }}
+          >
+            <Grid
+              container
+              spacing={1}
+              alignItems="center"
+              justifyContent="center"
+            >
+              <Grid item>{t("add")}</Grid>
+              <Grid item>
+                <ShoppingCart />
+              </Grid>
+            </Grid>
+          </Button>
+        </Box>
       </CardContent>
-      <Modal open={edit} onClose={() => setEdit(false)} product={product} />
+      <EditProduct
+        open={edit}
+        onClose={() => setEdit(false)}
+        product={product}
+        onEdited={onEdited}
+      />
     </MuiCard>
   );
 };

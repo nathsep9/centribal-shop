@@ -1,3 +1,4 @@
+import React from "react";
 import {
   AppBar,
   Toolbar as MuiToolbar,
@@ -5,11 +6,12 @@ import {
   Menu,
   MenuItem,
   IconButton,
+  Button,
 } from "@mui/material";
-import React from "react";
-import { useTranslation, initReactI18next } from "react-i18next";
+import { useTranslation } from "react-i18next";
 import LanguageIcon from "@mui/icons-material/Language";
-import LanguageDetector from "i18next-browser-languagedetector";
+
+import { Shopping } from "./Shopping";
 
 export const Toolbar = () => {
   const { t, i18n } = useTranslation("main");
@@ -22,44 +24,52 @@ export const Toolbar = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  const [shopping, setShopping] = React.useState(false);
   return (
-    <React.Fragment>
-      <AppBar position="relative">
-        <MuiToolbar>
-          <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
-            {t("title")}
-          </Typography>
-          <IconButton aria-label="delete" color="inherit" onClick={handleClick}>
-            <LanguageIcon />
-          </IconButton>
-          <Menu
-            id="basic-menu"
-            anchorEl={anchorEl}
-            open={open}
-            onClose={handleClose}
-            MenuListProps={{
-              "aria-labelledby": "basic-button",
+    <AppBar position="sticky">
+      <MuiToolbar>
+        <Typography
+          variant="h5"
+          component="div"
+          color="secondary"
+          sx={{ flexGrow: 1 }}
+          fontFamily={"Roboto"}
+          fontWeight={"500"}
+        >
+          {t("title")}
+        </Typography>
+        <Shopping />
+        <IconButton aria-label="delete" color="inherit" onClick={handleClick}>
+          <LanguageIcon />
+        </IconButton>
+
+        <Menu
+          id="basic-menu"
+          anchorEl={anchorEl}
+          open={open}
+          onClose={handleClose}
+          MenuListProps={{
+            "aria-labelledby": "basic-button",
+          }}
+        >
+          <MenuItem
+            onClick={() => {
+              i18n.changeLanguage("es");
+              handleClose();
             }}
           >
-            <MenuItem
-              onClick={() => {
-                i18n.changeLanguage("es");
-                handleClose();
-              }}
-            >
-              Español
-            </MenuItem>
-            <MenuItem
-              onClick={() => {
-                i18n.changeLanguage("en");
-                handleClose();
-              }}
-            >
-              Inglés
-            </MenuItem>
-          </Menu>
-        </MuiToolbar>
-      </AppBar>
-    </React.Fragment>
+            {t("spanish")}
+          </MenuItem>
+          <MenuItem
+            onClick={() => {
+              i18n.changeLanguage("en");
+              handleClose();
+            }}
+          >
+            {t("english")}
+          </MenuItem>
+        </Menu>
+      </MuiToolbar>
+    </AppBar>
   );
 };

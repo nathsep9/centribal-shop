@@ -3,128 +3,127 @@
     {
       "id": "41438751-ba3f-4544-a2ed-32628b11028e",
       "ref": "41438751",
-      "name": "cerveza poker bandeja 24x330ml",
-      "description": null,
+      "name": "Cerveza Poker Bandeja 24x330ml",
+      "description": "Cerveza colombiana popular y refrescante con un sabor suave y equilibrado. Ideal para compartir con amigos en cualquier ocasión.",
       "price": 48000,
       "amount": 3
     },
     {
       "id": "1f520675-cfab-4953-b7a3-cea41d163cbc",
       "ref": "1f520675",
-      "name": "whisky grants botella 750ml",
-      "description": "",
+      "name": "Whisky Grants Botella 750ml",
+      "description": "Whisky escocés suave y equilibrado con notas de vainilla y caramelo. Perfecto para disfrutar solo o con hielo.",
       "price": 48000,
       "amount": 4
     },
     {
       "id": "bf2bf509-70f8-471d-bc8f-05a279b1f41b",
       "ref": "bf2bf509",
-      "name": "whisky buchanans master 12 años botella 750ml",
-      "description": null,
+      "name": "Whisky Buchanan's Master 12 años Botella 750ml",
+      "description": "Whisky escocés premium con un envejecimiento mínimo de 12 años. Suave, con notas de miel y frutas secas. Ideal para ocasiones especiales.",
       "price": 125000,
       "amount": 5
     },
     {
       "id": "7cebbcb4-2e6b-47aa-93f0-c0bd165f7437",
       "ref": "7cebbcb4",
-      "name": "vodka smirnoff x1 sabor a lulo 750 ml",
-      "description": null,
+      "name": "Vodka Smirnoff x1 sabor a lulo 750 ml",
+      "description": "Vodka suave y afrutado con un sabor dulce y refrescante a lulo, una fruta típica de Colombia. Ideal para cócteles o tomar solo con hielo.",
       "price": 33000,
       "amount": 12
     },
     {
       "id": "cd06dd28-f858-4f02-83b7-865032db1787",
       "ref": "cd06dd28",
-      "name": "aguardiente antioqueño rojo x 375 ml",
-      "description": null,
+      "name": "Aguardiente Antioqueño Rojo x 375 ml",
+      "description": "Bebida espirituosa típica de Colombia con un sabor a anís y hierbas. Perfecta para celebraciones y reuniones familiares.",
       "price": 20000,
       "amount": 3
     },
     {
       "id": "83f8784d-2687-4683-818e-749e63c8541e",
       "ref": "83f8784d",
-      "name": "cerveza costeña bandeja 24x269ml",
-      "description": null,
+      "name": "Cerveza Costeña Bandeja 24x269ml",
+      "description": "Cerveza colombiana de sabor suave y refrescante, perfecta para acompañar platos típicos de la costa caribeña de Colombia.",
       "price": 32000,
       "amount": 13
     },
     {
       "id": "ae818c91-fec1-4021-a8ec-ba35b333fbf4",
       "ref": "ae818c91",
-      "name": "whisky buchanans deluxe 12 años botella 750ml",
-      "description": null,
+      "name": "Whisky Buchanan's Deluxe 12 años Botella 750ml",
+      "description": "Whisky escocés de alta calidad con un envejecimiento mínimo de 12 años. Sabor suave y equilibrado con notas de miel, frutas secas y especias.",
       "price": 150000,
       "amount": 3
     },
     {
       "id": "2c523c59-ffe1-4809-a8f5-828fded018c5",
       "ref": "2c523c59",
-      "name": "caja coronita",
-      "description": null,
+      "name": "Caja Coronita",
+      "description": "Cerveza mexicana popular y refrescante con un sabor suave y equilibrado. Ideal para compartir con amigos en cualquier ocasión.",
       "price": 48000,
       "amount": 20
     },
     {
       "id": "8165a09f-353e-4acf-a65d-7773711d1477",
       "ref": "8165a09f",
-      "name": "cerveza budweiser lata x 12 und x 269",
-      "description": null,
+      "name": "Cerveza Budweiser Lata x 12 und x 269ml",
+      "description": "Cerveza estadounidense suave y refrescante, perfecta para acompañar una cena o disfrutar en una reunión.",
       "price": 41000,
       "amount": 3
     },
     {
       "id": "e059332c-c8e1-4bf2-9893-e8a4da60a1b5",
       "ref": "e059332c",
-      "name": "ron santa fe 375 cc",
-      "description": null,
+      "name": "Ron Santa Fe 375 cc",
+      "description": "Ron colombiano de sabor suave y dulce, perfecto para cócteles o tomar solo con hielo.",
       "price": 24000,
       "amount": 2
     },
     {
       "id": "73c57087-21c8-43c7-87a2-7c429f88206b",
       "ref": "73c57087",
-      "name": "whisky johnnie walker black label media 375ml",
-      "description": null,
+      "name": "Whisky Johnnie Walker Black Label Media 375ml",
+      "description": "Whisky escocés de alta calidad con un sabor ahumado y notas de frutas secas y especias. Ideal para tomar solo o con hielo.",
       "price": 94000,
       "amount": 1
     },
     {
       "id": "52175dfa-4413-4879-80ee-a99659180dc8",
       "ref": "52175dfa",
-      "name": "cerveza andina bandeja x 24 und * 355ml",
-      "description": null,
+      "name": "Cerveza Andina Bandeja x 24 und * 355ml",
+      "description": "Cerveza artesanal colombiana con una mezcla de maltas y lúpulos que le dan un sabor único y complejo.",
       "price": 38000,
       "amount": 3
     },
     {
-      "id": "33b1723c-b521-4699-9de3-73a659136a23",
       "ref": "33b1723c",
-      "name": "aguardiente antioqueño azul x 375 ml",
-      "description": null,
+      "name": "Aguardiente Antioqueño Azul x 375 ml",
+      "description": "Bebida espirituosa típica de Colombia con un sabor a anís y hierbas. Perfecta para celebraciones y reuniones familiares.",
       "price": 22000,
-      "amount": 6
+      "id": "33b1723c-b521-4699-9de3-73a659136a23"
     },
     {
       "id": "d8090321-f8cd-4d82-93d6-496467d7a2a9",
       "ref": "d8090321",
-      "name": "whisky buchanans deluxe botella x 750 ml",
-      "description": "",
+      "name": "Whisky Buchanan's Deluxe Botella x 750 ml",
+      "description": "Whisky escocés suave y equilibrado con notas de miel y frutas secas. Perfecto para disfrutar solo o con hielo.",
       "price": 120000,
       "amount": 3
     },
     {
       "id": "949e6b53-2604-41f7-ad1b-a29e5584488b",
       "ref": "949e6b53",
-      "name": "budweiser lta 269 ml x 24 und",
-      "description": null,
+      "name": "Budweiser lata de 269 ml x 24 unidades",
+      "description": "Disfruta del sabor refrescante de la cerveza Budweiser en su presentación en lata de 269 ml. Perfecta para compartir con amigos en cualquier ocasión.",
       "price": 42000,
       "amount": 3
     },
     {
       "id": "93493ebf-0d8b-45e5-9d22-a36b1cf7ef46",
       "ref": "93493ebf",
-      "name": "crema de whisky baileys x 700 ml",
-      "description": null,
+      "name": "Crema de whisky Baileys de 700 ml",
+      "description": "La cremosa y deliciosa crema de whisky Baileys es el complemento perfecto para cualquier momento de relajación. Disfruta de su sabor suave y aterciopelado en su presentación de 700 ml.",
       "price": 55000,
       "amount": 2
     }

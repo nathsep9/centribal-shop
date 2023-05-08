@@ -1,9 +1,16 @@
 export interface Product {
   id: string;
+  ref: string;
   name: string;
-  image: string;
   description: string;
   price: number;
-  amount: number;
-  tax: string;
+  tax?: string;
+}
+
+export interface ProductFormValues {
+  ref: string;
+  name: string;
+  description: string;
+  price: string;
+  tax?: string;
 }

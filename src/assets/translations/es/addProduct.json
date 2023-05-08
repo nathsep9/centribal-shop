@@ -1,0 +1,19 @@
+{
+  "addProduct": "Agregar producto",
+  "reference": "Referencia",
+  "name": "Nombre",
+  "description": "Descripción",
+  "price": "Precio",
+  "amount": "Cantidad",
+  "action": "Acción",
+  "priceWithoutTaxes": "Precio sin impuestos",
+  "applicableTax": "Impuesto aplicable",
+  "priceWithTax": "Precio con impuestos",
+  "cancel": "Cancelar",
+  "save": "Guardar",
+  "saving": "Guardando...",
+  "editProduct": "Editar Producto",
+  "update": "Actualizar",
+  "updating...": "Actualizando...",
+  "delete": "Eliminar"
+}

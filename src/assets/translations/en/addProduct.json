@@ -1,0 +1,19 @@
+{
+  "addProduct": "Add product",
+  "reference": "Reference",
+  "name": "Name",
+  "description": "Description",
+  "price": "Price",
+  "amount": "Amount",
+  "action": "Action",
+  "priceWithoutTaxes": "Price without taxes",
+  "applicableTax": "Applicable tax",
+  "priceWithTax": "Price with tax",
+  "cancel": "Cancel",
+  "save": "Save",
+  "saving": "Saving...",
+  "editProduct": "Edit Product",
+  "update": "Update",
+  "updating": "Updating...",
+  "delete": "Delete"
+}
