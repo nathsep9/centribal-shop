@@ -1,7 +1,8 @@
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import ShoppingBasket from "@mui/icons-material/ShoppingBasketRounded";
 import {
   Badge,
+  Box,
   Button,
   Dialog,
   DialogContent,
@@ -11,20 +12,20 @@ import {
   Typography,
 } from "@mui/material";
 
-import { ShoppingProducts } from "components/Cart";
 import { useShopping } from "contexts/ShoppingContext";
-import { OrderCard } from "components/Cart/OrderCard";
-import { TableProduct } from "components/Table";
-import { t } from "i18next";
+import { OrderCard } from "components/ShoppingProducts/OrderCard";
 import CancelOutlinedIcon from "@mui/icons-material/CancelOutlined";
+import { useTranslation } from "react-i18next";
 
 export const Orders = () => {
   const { orders } = useShopping();
   const [open, setOpen] = useState(false);
+  const { t } = useTranslation("addProduct");
 
   const onClose = () => {
     setOpen(false);
   };
+
   return (
     <>
       <IconButton
@@ -49,7 +50,7 @@ export const Orders = () => {
         <Grid container>
           <Grid item xs={6}>
             <DialogTitle id="alert-dialog-title">
-              {t("shoppingCart")}
+              <Typography variant="h6">{t("order")}</Typography>
             </DialogTitle>
           </Grid>
 
@@ -62,7 +63,15 @@ export const Orders = () => {
             </Button>
           </Grid>
         </Grid>
-        <DialogContent></DialogContent>
+        <DialogContent>
+          <Grid container spacing={2}>
+            {orders.map((order) => (
+              <Grid item key={order.id} xs={12}>
+                <OrderCard order={order} />
+              </Grid>
+            ))}
+          </Grid>
+        </DialogContent>
       </Dialog>
     </>
   );

@@ -7,8 +7,6 @@ import { client } from "client";
 import { use } from "i18next";
 
 interface ShoppingContextProps {
-  open: boolean;
-  setOpen: (open: boolean) => void;
   products: OrderProduct[];
   setProducts: React.Dispatch<React.SetStateAction<OrderProduct[]>>;
   orders: Order[];
@@ -16,6 +14,7 @@ interface ShoppingContextProps {
   deleteProduct: (id: string) => void;
   addProduct: (product: Product) => void;
   createOrder: () => Promise<Order>;
+  deleteOrder: (id: string) => void;
 }
 
 export const ShoppingContext = createContext({} as ShoppingContextProps);
@@ -26,7 +25,6 @@ export const ShoppingProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const [open, setOpen] = React.useState(false);
   const [products, setProducts] = React.useState<OrderProduct[]>([]);
   const [orders, setOrders] = React.useState<Order[]>([]);
 
@@ -37,9 +35,7 @@ export const ShoppingProvider = ({
   }, []);
 
   const deleteProduct = (id: string) => {
-    const newProducts = products.filter(
-      (product) => product.product.ref !== id
-    );
+    const newProducts = products.filter((product) => product.product.id !== id);
     setProducts(newProducts);
   };
 
@@ -65,14 +61,18 @@ export const ShoppingProvider = ({
     };
     await client.post("/orders", order);
     setOrders([...orders, order]);
+    setProducts([]);
     return order;
+  };
+
+  const deleteOrder = async (id: string) => {
+    await client.delete(`/orders/${id}`);
+    setOrders((current) => current.filter((order) => order.id !== id));
   };
 
   return (
     <ShoppingContext.Provider
       value={{
-        open,
-        setOpen,
         setProducts,
         products,
         deleteProduct,
@@ -80,6 +80,7 @@ export const ShoppingProvider = ({
         createOrder,
         orders,
         setOrders,
+        deleteOrder,
       }}
     >
       {children}

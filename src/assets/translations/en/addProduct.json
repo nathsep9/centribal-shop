@@ -17,5 +17,10 @@
   "editProduct": "Edit Product",
   "update": "Update",
   "updating": "Updating...",
-  "delete": "Delete"
+  "delete": "Delete",
+  "order": "Orders created",
+  "see": "See",
+  "orderDetail": "Order details",
+  "emptyCart": "Your cart is empty. Don't know what to buy? Thousands of products they are waiting for you!",
+  "notProduct": "There are no products in this order"
 }

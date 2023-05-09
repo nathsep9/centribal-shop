@@ -6,6 +6,7 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 
 import { ProductFormValues } from "models/product";
+import { calculateTax } from "utils";
 
 interface FormProductProps {
   values: ProductFormValues;
@@ -104,9 +105,7 @@ export const FormProduct = ({ values, onChange, edit }: FormProductProps) => {
               variant="outlined"
               disabled
               fullWidth
-              value={
-                +values.price + +(values.price || 0) * +(values.tax || 0) * 0.01
-              }
+              value={calculateTax(values.price, values.tax)}
             />
           )}
         </Observer>

@@ -17,5 +17,10 @@
   "editProduct": "Editar Producto",
   "update": "Actualizar",
   "updating...": "Actualizando...",
-  "delete": "Eliminar"
+  "delete": "Eliminar",
+  "order": "Ordenes Creadas",
+  "see": "Ver",
+  "orderDetail": "Detalle de la orden",
+  "emptyCart": "Tu carrito esta vacío.¿No sabes qué comprar? ¡Miles de productos te esperan! ",
+  "notProduct": "No hay productos en esta orden"
 }

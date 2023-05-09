@@ -1,12 +1,14 @@
-import { useMemo } from "react";
+import { useState } from "react";
 import ShoppingIcon from "@mui/icons-material/ShoppingCartOutlined";
-import { Badge, Button, IconButton } from "@mui/material";
+import { Badge, IconButton } from "@mui/material";
 
-import { ShoppingProducts } from "components/Cart";
+import { ShoppingProducts } from "components/ShoppingProducts";
 import { useShopping } from "contexts/ShoppingContext";
 
 export const Shopping = () => {
-  const { open, setOpen, products } = useShopping();
+  const { products, setProducts } = useShopping();
+
+  const [open, setOpen] = useState(false);
 
   return (
     <>
@@ -20,13 +22,13 @@ export const Shopping = () => {
           <ShoppingIcon />
         </Badge>
       </IconButton>
-
       <ShoppingProducts
         open={open}
         onClose={() => {
           setOpen(false);
         }}
         products={products}
+        onUpdateProducts={(newProducts) => setProducts(newProducts)}
       />
     </>
   );

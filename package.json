@@ -1,5 +1,5 @@
 {
-  "name": "vite-project",
+  "name": "centribal-shop",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -8,7 +8,10 @@
     "build": "vite build",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "api": "json-server --watch db.json --port 3200"
+    "api": "json-server --watch db.json --port 3200",
+    "docker:build": "docker build --rm -t centribal-shop .",
+    "docker:run": "docker run -p 3300:80 -d centribal-shop",
+    "test": "vitest"
   },
   "dependencies": {
     "@emotion/react": "^11.10.8",
@@ -31,6 +34,7 @@
     "uuid": "^9.0.0"
   },
   "devDependencies": {
+    "@testing-library/react": "^14.0.0",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@types/uuid": "^9.0.1",
@@ -39,9 +43,11 @@
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.3.4",
+    "happy-dom": "^9.10.9",
     "json-server": "^0.17.3",
     "typescript": "^5.0.4",
     "vite": "^4.3.2",
-    "vite-tsconfig-paths": "^4.2.0"
+    "vite-tsconfig-paths": "^4.2.0",
+    "vitest": "^0.31.0"
   }
 }

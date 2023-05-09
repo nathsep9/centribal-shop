@@ -1,30 +1,38 @@
-import * as React from "react";
 import { useTranslation } from "react-i18next";
-import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
+import TextField from "@mui/material/TextField";
 import { Box, Button, Typography } from "@mui/material";
 
-import { numberFormat } from "./../../utils/index";
-import { useShopping } from "contexts/ShoppingContext";
+import { calculateTax, numberFormat } from "utils";
 
 import { Product } from "models/product";
+import { OrderProduct } from "models/order";
 
-// interface TableProductProps {
-//   product: Product;
-// }
+interface TableProductProps {
+  products: OrderProduct[];
+  onDelete: (product: Product) => void;
+  onEdit: (products: OrderProduct[]) => void;
+}
 
-export const TableProduct = () => {
-  const { t, i18n } = useTranslation("addProduct");
-  const { products, deleteProduct, createOrder } = useShopping();
-  {
-    /* quiero mostrar la suma de los productos agregados */
-  }
-  const suma = products.reduce(
+export const TableProducts = ({
+  products,
+  onDelete,
+  onEdit,
+}: TableProductProps) => {
+  const { t } = useTranslation("addProduct");
+
+  const totalTax = products.reduce(
+    (acc, el) =>
+      acc + calculateTax(el.product.price, el.product.tax) * el.amount,
+    0
+  );
+
+  const total = products.reduce(
     (acc, el) => acc + el.product.price * el.amount,
     0
   );
@@ -43,7 +51,7 @@ export const TableProduct = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {products.map(({ product, amount }) => (
+          {products.map(({ product, amount }, i) => (
             <TableRow hover tabIndex={-1} key={product.ref}>
               <TableCell>{product.ref}</TableCell>
               <TableCell>{product.name}</TableCell>
@@ -51,13 +59,30 @@ export const TableProduct = () => {
                 {product.description || "------------------"}
               </TableCell>
               <TableCell>{numberFormat(product.price)}</TableCell>
-              <TableCell>{amount}</TableCell>
+              <TableCell>
+                <TextField
+                  type="number"
+                  size="small"
+                  value={amount}
+                  onChange={(e) => {
+                    const newAmount = parseInt(e.target.value);
+                    if (newAmount > 0) {
+                      const newProducts = [...products];
+                      newProducts[i] = {
+                        ...newProducts[i],
+                        amount: newAmount,
+                      };
+                      onEdit(newProducts);
+                    }
+                  }}
+                />
+              </TableCell>
               <TableCell>
                 <Button
                   variant="contained"
                   color="secondary"
                   onClick={() => {
-                    deleteProduct(product.ref);
+                    onDelete(product);
                   }}
                 >
                   {t("delete")}
@@ -67,28 +92,24 @@ export const TableProduct = () => {
           ))}
         </TableBody>
       </Table>
-
-      <Typography
-        variant="h6"
+      <Box
+        px={1}
         sx={{
-          display: "flex",
-          justifyContent: "flex-end",
-          padding: "1rem",
-          marginTop: "1rem",
+          marginTop: 1,
         }}
       >
-        Total de productos agregados: {numberFormat(suma)}
-      </Typography>
-      <Box textAlign="center" mt={2}>
-        <Button
-          onClick={() => {
-            createOrder();
+        <Typography
+          variant="body1"
+          sx={{
+            display: "flex",
+            justifyContent: "flex-end",
           }}
-          variant="contained"
-          color="secondary"
         >
-          {t("addOrder")}
-        </Button>
+          Impuestos: {numberFormat(totalTax - total)}
+        </Typography>
+        <Typography variant="h6" textAlign="end">
+          Total: {numberFormat(totalTax)}
+        </Typography>
       </Box>
     </TableContainer>
   );

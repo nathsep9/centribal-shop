@@ -1,12 +1,12 @@
 {
   "products": [
     {
-      "id": "41438751-ba3f-4544-a2ed-32628b11028e",
       "ref": "41438751",
       "name": "Cerveza Poker Bandeja 24x330ml",
       "description": "Cerveza colombiana popular y refrescante con un sabor suave y equilibrado. Ideal para compartir con amigos en cualquier ocasión.",
       "price": 48000,
-      "amount": 3
+      "tax": "30",
+      "id": "41438751-ba3f-4544-a2ed-32628b11028e"
     },
     {
       "id": "1f520675-cfab-4953-b7a3-cea41d163cbc",
@@ -126,6 +126,48 @@
       "description": "La cremosa y deliciosa crema de whisky Baileys es el complemento perfecto para cualquier momento de relajación. Disfruta de su sabor suave y aterciopelado en su presentación de 700 ml.",
       "price": 55000,
       "amount": 2
+    }
+  ],
+  "orders": [
+    {
+      "products": [
+        {
+          "product": {
+            "ref": "41438751",
+            "name": "Cerveza Poker Bandeja 24x330ml",
+            "description": "Cerveza colombiana popular y refrescante con un sabor suave y equilibrado. Ideal para compartir con amigos en cualquier ocasión.",
+            "price": 48000,
+            "tax": "30",
+            "id": "41438751-ba3f-4544-a2ed-32628b11028e"
+          },
+          "amount": 38
+        },
+        {
+          "product": {
+            "id": "1f520675-cfab-4953-b7a3-cea41d163cbc",
+            "ref": "1f520675",
+            "name": "Whisky Grants Botella 750ml",
+            "description": "Whisky escocés suave y equilibrado con notas de vainilla y caramelo. Perfecto para disfrutar solo o con hielo.",
+            "price": 48000,
+            "amount": 4
+          },
+          "amount": 4
+        },
+        {
+          "product": {
+            "id": "bf2bf509-70f8-471d-bc8f-05a279b1f41b",
+            "ref": "bf2bf509",
+            "name": "Whisky Buchanan's Master 12 años Botella 750ml",
+            "description": "Whisky escocés premium con un envejecimiento mínimo de 12 años. Suave, con notas de miel y frutas secas. Ideal para ocasiones especiales.",
+            "price": 125000,
+            "amount": 5
+          },
+          "amount": 1
+        }
+      ],
+      "date": "2023-05-09T22:36:15.894Z",
+      "id": "7d07c818-1f1a-4b5d-b9b3-93ddaaa9b298",
+      "ref": "bdd7bcae"
     }
   ]
 }

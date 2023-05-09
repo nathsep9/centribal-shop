@@ -98,7 +98,7 @@ export const Card = ({ product, onDelete, onEdited }: Card) => {
               <MenuItem
                 onClick={async () => {
                   handleClose();
-                  await client.delete(`/products/${ref}`);
+                  await client.delete(`/products/${product.id}`);
                   onDelete();
                 }}
               >
