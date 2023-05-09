@@ -12,6 +12,7 @@ import { useTranslation } from "react-i18next";
 import LanguageIcon from "@mui/icons-material/Language";
 
 import { Shopping } from "./Shopping";
+import { Orders } from "./Orders";
 
 export const Toolbar = () => {
   const { t, i18n } = useTranslation("main");
@@ -38,10 +39,11 @@ export const Toolbar = () => {
         >
           {t("title")}
         </Typography>
-        <Shopping />
         <IconButton aria-label="delete" color="inherit" onClick={handleClick}>
           <LanguageIcon />
         </IconButton>
+        <Shopping />
+        <Orders />
 
         <Menu
           id="basic-menu"

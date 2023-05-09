@@ -1,5 +1,7 @@
 {
   "addProduct": "Add product",
+  "shoppingCart": "Shopping cart",
+  "addOrder": "Add order",
   "reference": "Reference",
   "name": "Name",
   "description": "Description",

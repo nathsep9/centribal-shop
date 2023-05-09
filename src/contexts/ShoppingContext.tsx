@@ -1,19 +1,21 @@
-import React, { createContext } from "react";
+import React, { createContext, useEffect } from "react";
+import { v4 as uuidV4 } from "uuid";
 
 import { Product } from "models/product";
+import { Order, OrderProduct } from "models/order";
+import { client } from "client";
+import { use } from "i18next";
 
 interface ShoppingContextProps {
   open: boolean;
   setOpen: (open: boolean) => void;
-  products: ShoppingProduct[];
-  setProducts: React.Dispatch<React.SetStateAction<ShoppingProduct[]>>;
+  products: OrderProduct[];
+  setProducts: React.Dispatch<React.SetStateAction<OrderProduct[]>>;
+  orders: Order[];
+  setOrders: React.Dispatch<React.SetStateAction<Order[]>>;
   deleteProduct: (id: string) => void;
   addProduct: (product: Product) => void;
-}
-
-export interface ShoppingProduct {
-  amount: number;
-  product: Product;
+  createOrder: () => Promise<Order>;
 }
 
 export const ShoppingContext = createContext({} as ShoppingContextProps);
@@ -25,7 +27,14 @@ export const ShoppingProvider = ({
   children: React.ReactNode;
 }) => {
   const [open, setOpen] = React.useState(false);
-  const [products, setProducts] = React.useState<ShoppingProduct[]>([]);
+  const [products, setProducts] = React.useState<OrderProduct[]>([]);
+  const [orders, setOrders] = React.useState<Order[]>([]);
+
+  useEffect(() => {
+    client.get("/orders").then(({ data }) => {
+      setOrders(data);
+    });
+  }, []);
 
   const deleteProduct = (id: string) => {
     const newProducts = products.filter(
@@ -47,15 +56,30 @@ export const ShoppingProvider = ({
     setProducts(newProducts);
   };
 
+  const createOrder = async () => {
+    const order: Order = {
+      products: products,
+      date: new Date().toISOString(),
+      id: uuidV4(),
+      ref: uuidV4().slice(0, 8),
+    };
+    await client.post("/orders", order);
+    setOrders([...orders, order]);
+    return order;
+  };
+
   return (
     <ShoppingContext.Provider
       value={{
         open,
         setOpen,
-        setProducts: setProducts,
-        products: products,
+        setProducts,
+        products,
         deleteProduct,
         addProduct,
+        createOrder,
+        orders,
+        setOrders,
       }}
     >
       {children}

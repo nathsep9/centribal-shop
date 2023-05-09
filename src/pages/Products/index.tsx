@@ -16,7 +16,7 @@ import { AddProduct } from "components/Dialogs";
 import beer from "assets/img/beer.jpg";
 
 export const Products = () => {
-  const { t, i18n } = useTranslation("addProduct");
+  const { t } = useTranslation("addProduct");
   const { data, isLoading, mutate } = useSWR<Product[]>("/products", fetcher);
 
   const [create, setCreate] = React.useState(false);
@@ -47,7 +47,6 @@ export const Products = () => {
                 <Suspense fallback={<div>Loading...</div>}>
                   <Card
                     onEdited={(newProduct: Product) => {
-                      debugger;
                       mutate(
                         data?.map((p) =>
                           p.ref === product.ref ? newProduct : p

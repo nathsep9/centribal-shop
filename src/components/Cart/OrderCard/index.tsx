@@ -13,11 +13,12 @@ import ShoppingCart from "@mui/icons-material/ShoppingCartCheckout";
 
 import { Product } from "models/product";
 import { client } from "client";
-import { EditProduct } from "../Dialogs";
+
 import { useShopping } from "contexts/ShoppingContext";
 import { numberFormat } from "utils";
 
 import { styled } from "@mui/material/styles";
+import { EditProduct } from "components/Dialogs";
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
 }
@@ -39,7 +40,7 @@ interface Card {
   onEdited: (newProduct: Product) => void;
 }
 
-export const Card = ({ product, onDelete, onEdited }: Card) => {
+export const OrderCard = ({ product, onDelete, onEdited }: Card) => {
   const { t } = useTranslation("cardProduct");
   const { name, description, price, ref } = product;
 

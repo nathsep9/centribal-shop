@@ -7,27 +7,14 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import { Box, Button, Typography } from "@mui/material";
+import { Button } from "@mui/material";
 
-import { numberFormat } from "./../../utils/index";
 import { useShopping } from "contexts/ShoppingContext";
+import { numberFormat } from "utils";
 
-import { Product } from "models/product";
-
-// interface TableProductProps {
-//   product: Product;
-// }
-
-export const TableProduct = () => {
+export const OrderProduct = () => {
   const { t, i18n } = useTranslation("addProduct");
-  const { products, deleteProduct, createOrder } = useShopping();
-  {
-    /* quiero mostrar la suma de los productos agregados */
-  }
-  const suma = products.reduce(
-    (acc, el) => acc + el.product.price * el.amount,
-    0
-  );
+  const { products, deleteProduct } = useShopping();
 
   return (
     <TableContainer sx={{ maxHeight: 440 }}>
@@ -67,29 +54,6 @@ export const TableProduct = () => {
           ))}
         </TableBody>
       </Table>
-
-      <Typography
-        variant="h6"
-        sx={{
-          display: "flex",
-          justifyContent: "flex-end",
-          padding: "1rem",
-          marginTop: "1rem",
-        }}
-      >
-        Total de productos agregados: {numberFormat(suma)}
-      </Typography>
-      <Box textAlign="center" mt={2}>
-        <Button
-          onClick={() => {
-            createOrder();
-          }}
-          variant="contained"
-          color="secondary"
-        >
-          {t("addOrder")}
-        </Button>
-      </Box>
     </TableContainer>
   );
 };
