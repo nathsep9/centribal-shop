@@ -10,6 +10,14 @@ This project is build with React, Vite, Material UI, and TypeScript.
 
 <img src="images/edit-en.jpg"/>
 
+<img src="images/notifications.jpg"/>
+
+<img src="images/car.jpg"/>
+
+<img src="images/order.jpg"/>
+
+<img src="images/order-detail.jpg"/>
+
 ## Available Scripts
 
 In the project directory, you can run:
